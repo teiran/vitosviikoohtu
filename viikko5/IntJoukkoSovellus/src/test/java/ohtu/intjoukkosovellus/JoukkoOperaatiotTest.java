@@ -32,4 +32,32 @@ public class JoukkoOperaatiotTest {
         
         return joukko;
     }
+    
+    @Test
+    public void testLeikkaus() {
+        IntJoukko eka = teeJoukko(1,2);
+        IntJoukko toka = teeJoukko(2,4);
+        
+        IntJoukko tulos = IntJoukko.leikkaus(eka, toka);
+        int[] vastauksenLuvut = tulos.toIntArray();
+        Arrays.sort(vastauksenLuvut);
+        
+        int[] odotettu = {2};
+        
+        assertArrayEquals(odotettu, vastauksenLuvut);        
+    }
+    
+     @Test
+    public void testErotus() {
+        IntJoukko eka = teeJoukko(1,2);
+        IntJoukko toka = teeJoukko(2,4);
+        
+        IntJoukko tulos = IntJoukko.erotus(eka, toka);
+        int[] vastauksenLuvut = tulos.toIntArray();
+        Arrays.sort(vastauksenLuvut);
+        
+        int[] odotettu = {1};
+        
+        assertArrayEquals(odotettu, vastauksenLuvut);        
+    } 
 }
